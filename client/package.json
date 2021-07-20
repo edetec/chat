@@ -10,6 +10,7 @@
     "test:watch": "npm run test -- --watch"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
@@ -29,16 +30,30 @@
     "sirv-cli": "^1.0.0"
   },
   "jest": {
+    "testEnvironment": "jsdom",
+    "moduleFileExtensions": [
+      "js",
+      "svelte"
+    ],
     "transform": {
       "^.+\\.js$": "babel-jest",
       "^.+\\.svelte$": "svelte-jester"
     },
-    "moduleFileExtensions": [
-      "js",
-      "svelte"
+    "verbose": true,
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom/extend-expect"
     ]
   },
-  "setupFilesAfterEnv": [
-    "@testing-library/jest-dom/extend-expect"
-  ]
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  }
 }

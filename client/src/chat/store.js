@@ -1,6 +1,6 @@
 import { writable, get } from 'svelte/store';
 
-const wsHost = window.location.origin.replace(/^http/, 'ws');
+const getWsHost = () => window.location.origin.replace(/^http/, 'ws');
 
 const usernameStore = writable('');
 let messageStore = writable([]);
@@ -69,7 +69,7 @@ const disconnect = () => {
 const connect = (room, username) => {
 	disconnect();
 
-	socket = new WebSocket(`${wsHost}/ws/${room}/${username}`);
+	socket = new WebSocket(`${getWsHost()}/ws/${room}/${username}`);
 
 	socket.addEventListener('open', function (event) {
 		console.log(`${room}'s open`);
