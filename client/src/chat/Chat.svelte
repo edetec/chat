@@ -1,4 +1,6 @@
 <script>
+    import ChatHeader from "./ChatHeader.svelte";
+
     import ChatInput from "./ChatInput.svelte";
     import MessageList from "./MessageList.svelte";
     import Rooms from "./Rooms.svelte";
@@ -11,6 +13,7 @@
         <UserList />
     </div>
     <div id="content">
+        <ChatHeader />
         <MessageList />
         <ChatInput />
     </div>

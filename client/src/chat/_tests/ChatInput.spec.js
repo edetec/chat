@@ -4,8 +4,8 @@ import ChatInput from '../ChatInput.svelte';
 import store from '../store';
 
 jest.mock('../store');
-const mockStartedTyping =store.sendStartedTyping;
-const mockStoppedTyping =store.sendStoppedTyping;
+const mockStartedTyping = store.sendStartedTyping;
+const mockStoppedTyping = store.sendStoppedTyping;
 
 beforeEach(() => {
     cleanup();

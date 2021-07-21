@@ -12,8 +12,6 @@
             unsubscribeMessages();
         }
         unsubscribeMessages = store.subscribeMessages((currentMessages) => {
-            // if (!currentMessage) return;
-            // messages = [...messages, currentMessage];
             messages = currentMessages;
         });
     });
@@ -38,7 +36,7 @@
 
 <style>
     #message-container {
-        height: calc(100% - 45px);
+        height: calc(100% - 6em);
         width: calc(100% - 1em);
         display: inline-block;
         overflow-y: auto;

@@ -3,7 +3,7 @@
 
 	import Chat from "./chat/Chat.svelte";
 	import store from "./chat/store";
-	import LoginForm from "./LoginForm.svelte";
+	import LoginForm from "./auth/LoginForm.svelte";
 
 	let username;
 

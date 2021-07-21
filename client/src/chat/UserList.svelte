@@ -1,7 +1,8 @@
 <script>
     import { onDestroy } from "svelte";
-    import store from "./store";
+    import store, { usernameStore } from "./store";
 
+    let username = $usernameStore;
     let users = [];
     const unsubscribe = store.subscribeUsers((currentUsers) => {
         users = currentUsers;
@@ -13,7 +14,7 @@
 <div id="users-container">
     <h2>Users</h2>
     {#each users as user, i}
-        <div>{user}</div>
+        <div class:me={username===user}>{user}</div>
     {:else}
         <p>No users</p>
     {/each}
@@ -24,5 +25,9 @@
         height: calc(100% - 3em);
         overflow-y: auto;
         padding: 0 10px;
+    }
+
+    .me {
+        font-weight: bolder;
     }
 </style>
